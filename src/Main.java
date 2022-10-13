@@ -18,15 +18,13 @@ import java.util.HashSet;
 public class Main {
 
     public static void main(String[] args) {
-        //Fill Exercise1Array.
-        Exercise1Array.fillArray();
 
         //Printing Exercise Array.
-        System.out.println(Exercise1Array.arrayOfNames);
+        System.out.println(NamesList.arrayOfNames);
 
-        //Add all names from arrayOfNames to HashSet. Added only unique names, because HashSet dont support same Values.
+        //Add all names from arrayOfNames to HashSet. Added only unique names, because HashSet don't support same Values.
         HashSet<String> uniqueNames = new HashSet<>();
-        uniqueNames.addAll(Exercise1Array.arrayOfNames);
+        uniqueNames.addAll(NamesList.arrayOfNames);
         /*
         Same result, but different writing:
         Iterator<String> iterator = arrayOfNames.iterator();
@@ -40,5 +38,13 @@ public class Main {
 
         System.out.println(uniqueNames);
         System.out.println(UniqueNamesCounter.counterUniqueNames);
+
+        PhoneBook pb = new PhoneBook();
+        pb.addContact("Ivanov", "222333");
+        pb.addContact("Ivanov", "333555");
+        pb.addContact("Dingo", "111111");
+
+        pb.getAllContacts();
+        pb.getContact("Ivanov");
     }
 }
