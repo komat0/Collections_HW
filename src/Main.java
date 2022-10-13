@@ -12,54 +12,33 @@ add extra functionality (additional fields (name, patronymic, address), interact
 by the user through the console, etc.). Use the console only to display the results of the check
 telephone directory.
 */
-import java.util.ArrayList;
-import java.util.HashMap;
+
 import java.util.HashSet;
 
 public class Main {
 
     public static void main(String[] args) {
+        //Fill Exercise1Array.
+        Exercise1Array.fillArray();
 
-        ArrayList<String> arrayOfNames = new ArrayList<String>();
-        arrayOfNames.add("John");
-        arrayOfNames.add("Mike");
-        arrayOfNames.add("Anna");
-        arrayOfNames.add("Oksana");
-        arrayOfNames.add("Max");
-        arrayOfNames.add("Barry");
-        arrayOfNames.add("Alexandr");
-        arrayOfNames.add("Bob");
-        arrayOfNames.add("Mike");
-        arrayOfNames.add("Vera");
-        arrayOfNames.add("Anna");
-        arrayOfNames.add("Vika");
-        arrayOfNames.add("Sergio");
-        arrayOfNames.add("John");
-        arrayOfNames.add("John");
+        //Printing Exercise Array.
+        System.out.println(Exercise1Array.arrayOfNames);
 
-        System.out.println(arrayOfNames);
-
-        HashSet<String> uniqueNames = new HashSet<>();
         //Add all names from arrayOfNames to HashSet. Added only unique names, because HashSet dont support same Values.
-        uniqueNames.addAll(arrayOfNames);
-
-        /*        Same result, but different writing:
+        HashSet<String> uniqueNames = new HashSet<>();
+        uniqueNames.addAll(Exercise1Array.arrayOfNames);
+        /*
+        Same result, but different writing:
         Iterator<String> iterator = arrayOfNames.iterator();
         while (iterator.hasNext()) {
             String str = iterator.next();
             uniqueNames.add(str);
-        }*/
+        }
+        */
 
-        //Create HashMap with Name as Key, and in the loop check same keys, if so add +1 to Value.
-        HashMap<String, Integer> counterUniqueNames = new HashMap<>();
-        for (int i = 0; i < arrayOfNames.size(); i++) {
-            if (counterUniqueNames.containsKey(arrayOfNames.get(i))) {
-                counterUniqueNames.put(arrayOfNames.get(i), counterUniqueNames.get(arrayOfNames.get(i)) + 1);
-            } else {
-                counterUniqueNames.put(arrayOfNames.get(i), 1);
-                    }
-            }
+        UniqueNamesCounter.fill();
+
         System.out.println(uniqueNames);
-        System.out.println(counterUniqueNames);
+        System.out.println(UniqueNamesCounter.counterUniqueNames);
     }
 }
